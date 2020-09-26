@@ -12,6 +12,9 @@ namespace Topicos.Calentamiento
             var lasHerramientas = new Topicos.Utilitarios.Message();
             var elMensaje = lasHerramientas.Say("Hello World!");
             Console.WriteLine(elMensaje);
+            lasHerramientas.MyProperty = 89123;
+            elMensaje = lasHerramientas.elMensaje;
+            Console.WriteLine(elMensaje);
         }
     }
 }
