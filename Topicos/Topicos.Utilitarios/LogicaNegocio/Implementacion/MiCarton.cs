@@ -6,9 +6,25 @@ namespace Topicos.Utilitarios
 {
     public class MiCarton : ICarton
     {
+        public MiCarton(int[,] elCartonNuevo)
+        {
+            for (int i = 0; i < _dimension; i++)
+            {
+                for (int j = 0; j < _dimension; j++)
+                {
+                    AsignarPosicion(i, j, elCartonNuevo[i, j]);
+                }
+            }
+        }
+
         private const int _dimension = 5;
         //int[,] elCarton = new int[5, 5];
         private int[,] _elCarton = new int[_dimension, _dimension];
+
+        private void AsignarPosicion (int i, int j, int elValor)
+        {
+            _elCarton[i, j] = elValor;
+        }
 
         public int[,] Carton
         {
