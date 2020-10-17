@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace Topicos.NorthWind.BaseDatos.Models
 {
     public partial class Products
     {
+        [NotMapped]
         public short? UnidadesDesabastecidas { get 
             { 
                 short? elResultado = 0;
@@ -17,6 +19,7 @@ namespace Topicos.NorthWind.BaseDatos.Models
             { } 
         }
 
+        [NotMapped]
         public string SupplierName {
             get 
             {

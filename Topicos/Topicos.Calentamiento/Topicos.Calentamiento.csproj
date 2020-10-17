@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -6,6 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Topicos.NorthWind.BaseDatos\Topicos.NorthWind.BaseDatos.csproj" />
+    <ProjectReference Include="..\Topicos.NorthWInd.BL\Topicos.NorthWInd.BL.csproj" />
     <ProjectReference Include="..\Topicos.Utilitarios\Topicos.Utilitarios.csproj" />
   </ItemGroup>
 

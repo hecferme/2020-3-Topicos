@@ -13,6 +13,7 @@ namespace Topicos.Calentamiento
         {
             var laClase = new Job();
             laClase.Do();
+            laClase.DoQuery();
         }
     }
 }
