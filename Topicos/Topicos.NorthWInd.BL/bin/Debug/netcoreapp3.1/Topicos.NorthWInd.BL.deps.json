@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "Topicos.NorthWInd.BL/1.0.0": {
+        "runtime": {
+          "Topicos.NorthWInd.BL.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Topicos.NorthWInd.BL/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
