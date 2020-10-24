@@ -31,7 +31,8 @@ namespace Topicos.NorthWind.BaseDatos.Models
                 return elResultado;
             } 
             set
-            { }
+            { 
+            }
         }
     }
 }

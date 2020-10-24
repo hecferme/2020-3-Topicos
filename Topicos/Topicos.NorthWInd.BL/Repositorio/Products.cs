@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 using Topicos.NorthWind.BaseDatos.Models;
+using System.Data;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace Topicos.NorthWInd.BL.Repositorio
 {
@@ -12,7 +15,7 @@ namespace Topicos.NorthWInd.BL.Repositorio
         public NorthWind.BaseDatos.Models.Products ObtenerProductosPorId(int id)
         {
             NorthWind.BaseDatos.Models.Products elResultado;
-            elResultado = _contexto.Products.Find(id);
+            elResultado = _contexto.Products.Include(p => p.Category).Include(p=> p.Supplier).Where(p => p.ProductId == id).FirstOrDefault();
             return elResultado;
         }
     }
