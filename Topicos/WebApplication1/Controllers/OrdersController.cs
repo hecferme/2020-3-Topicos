@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebApplication1.MisModelos;
 
 namespace WebApplication1.Controllers
 {
@@ -11,13 +12,26 @@ namespace WebApplication1.Controllers
     public class OrderController : ControllerBase
     {
         [HttpGet]
-        public JsonResult GetOrders ()
+        public IActionResult GetOrders()
         {
-            JsonResult elResultado = new JsonResult(new List<Object>() {
-                 new {id = 5, orderDate=DateTime.Now},
-                 new {id = 25, orderDate=DateTime.Now.AddMinutes(-200)}
-            });
-            return  elResultado;
+            var elResultado = OrdersDataStore.Current.OrdersList;
+            return  Ok(elResultado);
+        }
+
+        internal Orders BuscarOrden (int orderId)
+        {
+            var laOrden = OrdersDataStore.Current.OrdersList.FirstOrDefault(o => o.Id == orderId);
+            return laOrden;
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult GetOrder(int id)
+        {
+            // verifique si la orden existe
+            var laOrden = BuscarOrden(id);
+            if (laOrden == null)
+                return NotFound();
+            return Ok(laOrden);
         }
     }
 }
