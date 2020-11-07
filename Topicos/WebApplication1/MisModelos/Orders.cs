@@ -9,6 +9,6 @@ namespace WebApplication1.MisModelos
     {
         public int Id { get; set; }
         public DateTime OrderDate { get; set; }
-        public ICollection<OrderDetail> LosDetalles { get; set; }
+        public IList<OrderDetail> LosDetalles { get; set; }
     }
 }
