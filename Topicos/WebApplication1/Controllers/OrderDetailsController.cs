@@ -60,8 +60,10 @@ namespace WebApplication1.Controllers
         }
 
         [HttpPost]
-         public IActionResult Insert (int id, [FromBody] OrderDetailForCreation od)
+        public IActionResult Insert (int id, [FromBody] OrderDetailForCreation od)
         {
+            if (!ModelState.IsValid)
+                return (BadRequest(od));
             var laOrden = BuscarOrden(id);
             if (laOrden == null)
                 return NotFound();
