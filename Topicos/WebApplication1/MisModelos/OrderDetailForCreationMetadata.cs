@@ -16,7 +16,7 @@ namespace WebApplication1.MisModelos
         public object ProductPrice { get; set; }
         [Required]
         [Range(1, 100)]
-        [ParImpar (true)]
+        [ParImpar (false)]
         public object Quantity { get; set; }
         [MinLength(5)]
         [MaxLength(50)]

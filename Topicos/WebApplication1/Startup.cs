@@ -28,9 +28,12 @@ namespace WebApplication1
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services
+                .AddControllersWithViews()
+                .AddNewtonsoftJson();
             services.AddMvc(m => m.EnableEndpointRouting = false)
                 .AddJsonOptions(
-                o => o.JsonSerializerOptions.PropertyNamingPolicy = null)
+                o => o.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase)
                 .AddMvcOptions(o => o.OutputFormatters.Add(new XmlDataContractSerializerOutputFormatter()));
         }
 
