@@ -105,6 +105,11 @@ namespace WebApplication1.Controllers
             patchDoc.ApplyTo(elDetalleAParchar, ModelState);
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
+
+            if (! TryValidateModel(elDetalleAParchar))
+            {
+                return BadRequest(ModelState);
+            }
             // convierta el objeto parchado a uno que pueda asignar en una línea
             var elDetalleParaActualizar = new OrderDetail()
             {
