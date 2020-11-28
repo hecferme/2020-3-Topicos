@@ -93,6 +93,14 @@ namespace WebApplication1.Controllers
             return elDetalleActualizado;
         }
 
+
+        private IActionResult BorrarDetalle(Orders laOrden, OrderDetail elDetalle)
+        {
+            var indice = laOrden.LosDetalles.ToList().FindIndex(d => d.IdArticulo == elDetalle.IdArticulo);
+            laOrden.LosDetalles.RemoveAt(indice);
+            return NoContent();
+        }
+
         private IActionResult ActualizarDetalleParcialmente(Orders laOrden, OrderDetail elDetalle, 
             JsonPatchDocument<OrderDetailsForUpdate> patchDoc)
         {
@@ -150,5 +158,19 @@ namespace WebApplication1.Controllers
                 patchedOrderDetail);
 
         }
+
+        [HttpDelete("{productid}")]
+        public IActionResult DeleteOrderDetail (int id, int productId)
+        {
+            var laOrden = BuscarOrden(id);
+            if (laOrden == null)
+                return NotFound();
+            var elDetalle = laOrden.LosDetalles.FirstOrDefault(d => d.IdArticulo == productId);
+            if (elDetalle == null)
+                return NotFound();
+            return BorrarDetalle(laOrden, elDetalle);
+
+        }
+
     }
 }
