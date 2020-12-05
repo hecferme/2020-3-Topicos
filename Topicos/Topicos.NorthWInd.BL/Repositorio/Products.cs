@@ -10,12 +10,18 @@ namespace Topicos.NorthWInd.BL.Repositorio
 {
     internal class Products
     {
-        private readonly NorthWindContext _contexto = new NorthWindContext();
+        private readonly NorthWindContext _context = new NorthWindContext();
 
-        public NorthWind.BaseDatos.Models.Products ObtenerProductosPorId(int id)
+        public Products(NorthWindContext context)
+        {
+            _context = context ?? throw new ArgumentNullException(nameof(context));
+        }
+
+
+        public NorthWind.BaseDatos.Models.Products ObtenerProductoPorId(int id)
         {
             NorthWind.BaseDatos.Models.Products elResultado;
-            elResultado = _contexto.Products.Include(p => p.Category).Include(p=> p.Supplier).Where(p => p.ProductId == id).FirstOrDefault();
+            elResultado = _context.Products.Include(p => p.Category).Include(p=> p.Supplier).Where(p => p.ProductId == id).FirstOrDefault();
             return elResultado;
         }
     }

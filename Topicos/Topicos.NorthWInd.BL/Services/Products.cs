@@ -8,11 +8,17 @@ namespace Topicos.NorthWInd.BL.Services
 {
     public class Products : IProducts
     {
-        public NorthWind.BaseDatos.Models.Products ObtenerProductosPorId(int id)
+        private readonly NorthWindContext _context;
+
+        public Products(NorthWindContext context)
+        {
+            _context = context ?? throw new ArgumentNullException(nameof(context));
+        }
+        public NorthWind.BaseDatos.Models.Products ObtenerProductoPorId(int id)
         {
             NorthWind.BaseDatos.Models.Products elResultado;
-            var laAccion = new Acciones.Products();
-            elResultado = laAccion.ObtenerProductosPorId(id);
+            var laAccion = new Acciones.Products(_context);
+            elResultado = laAccion.ObtenerProductoPorId(id);
             return elResultado;
         }
 

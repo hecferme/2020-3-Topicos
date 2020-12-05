@@ -7,7 +7,7 @@ namespace Topicos.NorthWInd.BL.Interfaces
 {
     public interface IProducts
     {
-        Products ObtenerProductosPorId(int id);
+        Products ObtenerProductoPorId(int id);
 
         ICollection<Products> ObtenerProductosPorNombreAproximado(string nombreProducto);
 

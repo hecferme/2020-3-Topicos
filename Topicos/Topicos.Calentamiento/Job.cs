@@ -54,7 +54,7 @@ namespace Topicos.Calentamiento
             { 
                 var elServicio = new Topicos.NorthWInd.BL.Services.Products();
                 int elIdDeProductoNoNullable = (int)idDeProducto;
-                var elProductoEncontrado = elServicio.ObtenerProductosPorId(elIdDeProductoNoNullable);
+                var elProductoEncontrado = elServicio.ObtenerProductoPorId(elIdDeProductoNoNullable);
                 if (elProductoEncontrado == null)
                 {
                     //Console.WriteLine(string.Format ("El Id de Producto {0} no existe.", elIdDeProductoNoNullable.ToString()));

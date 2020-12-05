@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using WebApplication1.MisModelos;
 using Microsoft.AspNetCore.Mvc.NewtonsoftJson;
 using Microsoft.AspNetCore.JsonPatch;
+using Topicos.NorthWind.BaseDatos.Models;
 
 namespace WebApplication1.Controllers
 {
@@ -13,6 +14,13 @@ namespace WebApplication1.Controllers
     [ApiController]
     public class OrderDetailsController : ControllerBase
     {
+        private readonly NorthWindContext _context;
+
+        public OrderDetailsController(NorthWindContext context)
+        {
+            _context = context ?? throw new ArgumentNullException(nameof(context));
+
+        }
 
         internal Orders BuscarOrden(int orderId)
         {
